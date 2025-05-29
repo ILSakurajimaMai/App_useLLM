@@ -1,50 +1,183 @@
-# Welcome to your Expo app 👋
+# AI ChatBot 🤖
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Ứng dụng AI ChatBot đa nền tảng được xây dựng với React Native và Expo, hỗ trợ nhiều mô hình AI khác nhau.
 
-## Get started
+## ✨ Tính năng
 
-1. Install dependencies
+- 🤖 Chat với nhiều AI models: OpenAI, Grok, Gemini
+- 🔄 So sánh phản hồi từ các AI models khác nhau
+- 📱 Hỗ trợ đa nền tảng: iOS, Android, Web
+- 🎨 Giao diện hiện đại với Material Design (React Native Paper)
+- 💾 Lưu trữ lịch sử chat cục bộ
+- 🔐 Quản lý API keys an toàn
+- 🌙 Hỗ trợ Dark/Light mode tự động
 
-   ```bash
-   npm install
-   ```
+## 🛠️ Công nghệ sử dụng
 
-2. Start the app
+- **Framework**: React Native + Expo (SDK 53)
+- **Navigation**: Expo Router với typed routes
+- **UI Library**: React Native Paper
+- **Language**: TypeScript
+- **State Management**: React Context
+- **Storage**: AsyncStorage
+- **Animation**: React Native Reanimated
 
-   ```bash
-    npx expo start
-   ```
+## 📱 Screenshots
 
-In the output, you'll find options to open the app in a
+_Thêm screenshots của app tại đây_
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 🚀 Cài đặt và chạy
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+### Yêu cầu hệ thống
 
-## Get a fresh project
+- Node.js >= 18
+- npm hoặc yarn
+- Expo CLI
+- Android Studio (cho Android development)
+- Xcode (cho iOS development - chỉ trên macOS)
 
-When you're ready, run:
+### Cài đặt
+
+1. Clone repository:
 
 ```bash
-npm run reset-project
+git clone https://github.com/your-username/ai-chatbot.git
+cd ai-chatbot
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Cài đặt dependencies:
 
-## Learn more
+```bash
+npm install
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+3. Thiết lập API keys:
+   - Mở app và vào phần "API Key Settings"
+   - Nhập API keys cho các service bạn muốn sử dụng:
+     - OpenAI API Key
+     - Grok API Key (X.AI)
+     - Gemini API Key (Google AI)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Chạy ứng dụng
 
-## Join the community
+```bash
+# Chạy trên tất cả platforms
+npm start
 
-Join our community of developers creating universal apps.
+# Chỉ chạy trên Android
+npm run android
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+# Chỉ chạy trên iOS
+npm run ios
+
+# Chạy trên web
+npm run web
+
+# Chạy ở chế độ development
+npm run dev
+```
+
+## 🔧 Scripts có sẵn
+
+```bash
+npm start              # Khởi động Expo dev server (offline mode)
+npm run start-local    # Khởi động với localhost only
+npm run start-tunnel   # Khởi động với tunnel (online mode)
+npm run android        # Chạy trên Android emulator/device
+npm run ios            # Chạy trên iOS simulator/device
+npm run web            # Chạy trên web browser
+npm test               # Chạy tests
+npm run lint           # Kiểm tra code style
+npm run build:android  # Build APK/AAB cho Android
+npm run build:ios      # Build IPA cho iOS
+npm run clean          # Xóa cache
+npm run prebuild       # Prebuild native code
+```
+
+## 📁 Cấu trúc project
+
+```
+├── app/                    # Expo Router pages
+│   ├── _layout.tsx        # Root layout
+│   ├── index.tsx          # Trang chủ
+│   ├── chat-openai.tsx    # Chat với OpenAI
+│   ├── chat-grok.tsx      # Chat với Grok
+│   ├── chat-gemini.tsx    # Chat với Gemini
+│   ├── chat-compare.tsx   # So sánh AI responses
+│   └── api-key.tsx        # Quản lý API keys
+├── src/
+│   ├── components/        # Reusable components
+│   ├── screens/          # Screen components
+│   ├── contexts/         # React contexts
+│   ├── hooks/            # Custom hooks
+│   ├── api/              # API services
+│   └── constants/        # Constants và configs
+├── assets/               # Images, fonts, etc.
+├── android/              # Native Android code
+└── scripts/              # Build scripts
+```
+
+## 🔑 Cấu hình API Keys
+
+App hỗ trợ các AI services sau:
+
+1. **OpenAI**
+
+   - Đăng ký tại: https://platform.openai.com/
+   - Models: GPT-3.5, GPT-4, GPT-4-turbo
+
+2. **Grok (X.AI)**
+
+   - Đăng ký tại: https://x.ai/
+   - Models: Grok-1, Grok-2
+
+3. **Google Gemini**
+   - Đăng ký tại: https://ai.google.dev/
+   - Models: Gemini Pro, Gemini Pro Vision
+
+## 🔒 Bảo mật
+
+- API keys được lưu trữ cục bộ trên device
+- Không gửi data về server central
+- Tất cả requests được thực hiện trực tiếp với AI providers
+
+## 🚧 Build cho Production
+
+### Android
+
+```bash
+npm run build:android
+```
+
+### iOS
+
+```bash
+npm run build:ios
+```
+
+Sử dụng EAS Build service của Expo để build production apps.
+
+## 🤝 Đóng góp
+
+1. Fork repository
+2. Tạo feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Mở Pull Request
+
+## 📄 License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+## 📞 Liên hệ
+
+- Email: your-email@example.com
+- GitHub: [@your-username](https://github.com/your-username)
+
+## 🙏 Acknowledgments
+
+- [Expo](https://expo.dev/) - Amazing React Native framework
+- [React Native Paper](https://reactnativepaper.com/) - Material Design components
+- [OpenAI](https://openai.com/) - AI API services
+- [Google AI](https://ai.google.dev/) - Gemini AI models
+- [X.AI](https://x.ai/) - Grok AI models
